@@ -138,6 +138,14 @@ li{
   border: solid 5px #ccc;
 }
 
+.makeRed{
+	background-color: red;
+}
+
+.makeBorder{
+	border:2px;
+}
+
 
 @media screen and (max-width: 700px){
 	ul{

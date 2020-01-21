@@ -120,4 +120,21 @@ $(document).ready(function() {
     $('#button_effect4').mouseleave(function(){
     $('#button_effect4').fadeTo(1000,1.0);
     });
+    
+    // adding effects by chaining methods
+    $("#button_effect5").mouseenter(function(){
+    $('#button_effect5').removeClass("makeRed").addClass("makeBorder");
+    });
+
+    $("#button_effect5").mouseleave(function(){
+    $("#button_effect5").removeClass("makeBorder").addClass("makeRed");
+    });
+
+    $("#button_effect6").click(function() {
+	$("p").hide(2000).show(2000);
+	});
+
+	$("#button_effect6").click(function(){
+	$("p").fadeIn().fadeOut();
+	});
 }); 
