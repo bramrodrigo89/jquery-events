@@ -98,4 +98,26 @@ $(document).ready(function() {
     $(".bottom_button").mouseleave(function(){
         $("body").css( "background-color", "#eee"); 
     });
+
+    //makes the button dissapear when clicked
+    $("#button_effect1").click(function(){
+        $('#button_effect1').hide('slow');
+    });
+    
+    //makes the text above dissapear when clicked and appear if clicked again (toggle function)
+    $('#button_effect2').click(function(){
+        $('#pa_effect2').toggle(1000);
+    });
+
+    $('#button_effect3').click(function(){
+    $('#pa_effect3').slideToggle(1000);
+    });
+
+    $('#button_effect4').mouseenter(function(){
+    $('#button_effect4').fadeTo(1000,0.5);
+    });
+
+    $('#button_effect4').mouseleave(function(){
+    $('#button_effect4').fadeTo(1000,1.0);
+    });
 }); 
