@@ -1,5 +1,6 @@
 $(document).ready(function() {
  
+    // highlights respective stream cards after nav link was clicked
 
  	$(".stream_nav").click(function() {
 
@@ -10,9 +11,10 @@ $(document).ready(function() {
     $(thisStreamCardsSelector).addClass("highlight_stream");
     });
     
-    //applies colour red to paragraphs when clicked on 
+    //applies colour red to paragraphs when clicked on and links turn yellow
     $("p").click(function(){
-        $("p").css('color', 'red');
+        $(this).css('color', 'red');
+        $(this).children('a').css('background-color','yellow');
     });
 
     //will add lightblue to h2 elements
@@ -99,32 +101,58 @@ $(document).ready(function() {
         $('#pa_effect2').toggle(1000);
     });
 
+    //now using traversing horizontally given the sibling relationship between p and button
     $('#button_effect3').click(function(){
-    $('#pa_effect3').slideToggle(1000);
+        $(this).prev().slideToggle('slow');
     });
 
+    //fades the button to 0.5 opacity when mouse enters the button area
     $('#button_effect4').mouseenter(function(){
-    $('#button_effect4').fadeTo(1000,0.5);
+        $('#button_effect4').fadeTo(1000,0.5);
     });
 
     $('#button_effect4').mouseleave(function(){
-    $('#button_effect4').fadeTo(1000,1.0);
+        $('#button_effect4').fadeTo(1000,1.0);
     });
     
     // adding effects by chaining methods
     $("#button_effect5").mouseenter(function(){
-    $('#button_effect5').removeClass("makeRed").addClass("makeBorder");
+        $('#button_effect5').removeClass("makeRed").addClass("makeBorder");
     });
 
     $("#button_effect5").mouseleave(function(){
-    $("#button_effect5").removeClass("makeBorder").addClass("makeRed");
+        $("#button_effect5").removeClass("makeBorder").addClass("makeRed");
     });
 
+    // click function acts on all paragraphs on the page (keyword 'this' was not introduced yet)
     $("#button_effect6").click(function() {
-	$("p").hide(2000).show(2000);
+	    $("p").hide(2000).show(2000);
 	});
 
 	$("#button_effect6").click(function(){
-	$("p").fadeIn().fadeOut();
+	    $("p").fadeIn().fadeOut();
 	});
+
+    // displays paragraphs after images are clicked
+
+    $('.card_image').click(function(){
+        $(this).next().children('p').slideDown();
+    });
+
+    // when a card is clicked, background color is changed to pink
+
+    $('.card').click(function() {
+        $(this).toggleClass('makePink'); 
+    });
+
+    // selects those card with pink background
+    $('.select_nav').click(function(){
+        $(".card:not(.makePink)").hide();
+    });
+
+    // makes all cards appear again
+
+    $('.all_nav').click(function(){
+        $('.card').show();
+    });
 }); 
